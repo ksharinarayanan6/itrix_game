@@ -1,0 +1,318 @@
+<html>
+<head>
+<title>RCB</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+background-color:black;
+}
+.container{
+background-color:white;
+}
+<!--For player card -->
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  float:left;
+  padding:30px;
+}
+
+.title {
+  color: grey;
+  font-size: 15px;
+}
+h1{
+font-size:20px;
+  white-space: nowrap;
+
+}
+div {
+    border-style:solid;
+    border-width:4px;  
+    border-color:transparent;
+}
+<!-- card end -->
+<!-- for checkbox -->
+*{font-family: 'Roboto', sans-serif;}
+
+@keyframes click-wave {
+  0% {
+    height:20px;
+    width: 20px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input:checked {
+  background: #40e0d0;
+}
+.option-input:checked::before {
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  content: '\2713';
+  display: inline-block;
+  font-size: 20.66667px;
+  text-align: center;
+  line-height: 20px;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+h5{
+font-size:20px;
+  white-space: nowrap;
+}
+
+<!--end-->
+<!--button-->
+.button {
+  width: 170px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button-1 {
+  background-color: transparent;
+  border: 3px solid #00d7c3;
+  border-radius: 50px;
+  -webkit-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+  color: #00d7c3;
+}
+.button-1:hover {
+  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+  border: 3px solid #00d7c3;
+}
+
+
+<!--buttonend-->
+
+
+@media only screen and (min-width: 600px) {
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+h2{
+     word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}
+</style>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<!-- input type="email" class="form-control" id="email"> */-->
+<div class="playercontainer">
+  <div class="header">
+    <center><h1 style="font-size:35px;color:#FF4500;"> Select 3 players :- </h1></center>
+    </div>
+    
+    <form name="players_selection" method="POST" action="/action_page.php">
+    
+    <div class="form-group">
+      
+       <div class="container"  style=" border-color:#FF4500;">
+         <div class="row row-no-gutters">
+         <div class="col-sm-2">
+          </div>
+             <div class="col-sm-3" >
+                  <div class="card" style=" border-color:transparent;" >
+                <img src="/asset/virat.png" alt="virat" style="width:100%">
+                <h1>Virat Kohli</h1>
+                <p class="title">Royal Challengers Bangalore</p>
+              <h5><b><input id="boxid" type="checkbox" class="option-input checkbox" name="virat" value="virat"><label for="boxid">ADD</label></b></h5>
+            </div>
+              </div>
+          <div class="col-sm-2">
+          </div>
+              <div class="col-sm-3" >
+                         <div class="card"  style=" border-color:transparent;">
+                <img src="/asset/abd.png" alt="abdvilliers" style="width:100%">
+                <h1>AB de Villiers</h1>
+                <p class="title">Royal Challengers Bangalore</p>
+               <h5><b><input id="boxid1" type="checkbox" class="option-input checkbox" name="abd" value="abd"><label for="boxid">ADD</label></b></h5>
+            </div>
+            </div>
+         <div class="col-sm-2">
+          </div>
+            </div>
+        <div class="row row-no-gutters">
+        <div class="col-sm-1">
+          </div>
+              <div class="col-sm-3">
+                      <div class="card"  style=" border-color:transparent;">
+                <img src="/asset/umesh.png" alt="umesh" style="width:100%">
+                <h1>Umesh Yadav</h1>
+                <p class="title">Royal Challengers Bangalore</p>
+               <h5><b><input id="boxid2" type="checkbox" class="option-input checkbox" name="umesh" value="umesh"><label for="boxid">ADD</label></b></h5>
+              </div>
+    
+             </div>
+        <div class="col-sm-1">
+          </div>
+              <div class="col-sm-3">
+                     <div class="card"  style=" border-color:transparent;">
+                <img src="/asset/chahal.png" alt="chahal" style="width:100%">
+                <h1>Yuzvendra Chahal</h1>
+                <p class="title">Royal Challengers Bangalore</p>
+               <h5><b><input id="boxid3" type="checkbox" class="option-input checkbox" name="chahal" value="bravo"><label for="boxid">ADD</label></b></h5>
+              </div>
+              </div>
+        <div class="col-sm-1">
+          </div>
+          <div class="col-sm-3">
+                   <div class="card"  style=" border-color:transparent;">
+                <img src="/asset/negi.png" alt="negi" style="width:100%">
+                <h1>Pawan Negi</h1>
+                <p class="title">Royal Challengers Bangalore</p>
+               <h5><b><input id="boxid4" type="checkbox" class="option-input checkbox" name="negi" value="negi"><label for="boxid">ADD</label></b></h5>
+              </div>
+          </div>
+       </div>
+       </div>
+    <br>
+    <center><div id="info" style="height:50px;width:300px;color:#FF4500;box-shadow: 0 0 5px 0 #FF4500 inset, 0 0 5px 1px #FF4500;
+      border: 1px solid #FF4500;">SELECT ONLY THREE PLAYERS OUT OF 5</div></center>
+    </div>
+    
+    
+    
+    <dialog id="myDialog" style=" width: 60%;
+      height: auto; color:white;background-color:black;" >
+    <center><h2> Three Players Selected. Click <b style="color:yellow">"PLAY"</b> to proceed.</h2></center>
+    <br>
+     <center> <button type="submit" id="checkerButton" class="btn btn-outline-success">PLAY</button></center>
+    <br>
+    <h7>* Press "Esc" to close</h7>
+    
+    </dialog>
+    
+    </form>
+</div>
+
+<script>
+  $(document).ready(function(){
+  $('#boxid,#boxid1,#boxid2,#boxid3,#boxid4').click(function() {
+    
+    if ($(this).is(':checked')) {
+      $(this).siblings('label').html('ADDED');
+    
+    } else {
+      $(this).siblings('label').html('ADD');
+    
+    }
+  $(document).ready(function() {
+  
+   $("#checkerButton").hide();
+  });
+  $(document).ready(function() {
+  
+    if ($("input:checkbox:checked").length == 3) {
+      $("#checkerButton").show();
+  document.getElementById('info').style.display = 'none'; 
+   document.getElementById("myDialog").showModal(); 
+    } else {
+      $("#checkerButton").hide();
+    document.getElementById('info').style.display = 'block'; 
+    }
+  });	 
+  
+  });
+  });
+  
+  
+  </script>
+ 
+
+
+
+
+</body>
+</html>

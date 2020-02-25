@@ -83,4 +83,6 @@ router.post("/logged/", function(req, res, next){
 
 router.get("/franchise/", userController.franchise);
 
+router.get("/playerSelect/", userController.player);
+
 module.exports = router;

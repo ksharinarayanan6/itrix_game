@@ -15,14 +15,16 @@
       <link rel="stylesheet" href="/css/franchiseSelector.css">
 </head>
 <body>
-    <div class="team">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Team selector-->
+    <div class="team" id="franchisediv">
         <div class="heading">        <h1>Select your franchise.</h1>
         </div>
         <div class="container-fluid teams">
             <div class="row justify-content-center">
                 
                 
-                    <div class="col-5 col-md-2 kkr">
+                    <div class="col-5 col-md-2 kkr"  onclick="changetoplayer()">
                         <h1>KKR</h1>
                         <div class="imgcontainer">
                             <img src="/asset/kkr.png"   alt="">
@@ -101,6 +103,137 @@
             </div>
         
     </div>
+
+
+    <!--Player Selector-->
+
+    <div class="playercontainer" id="playerdiv"  style="display: none;" >
+        <div class="header">
+          <center><h1 style="font-size:35px;color:#FF4500;"> Select 3 players :- </h1></center>
+          </div>
+          
+          <form name="players_selection" method="POST" action="/action_page.php">
+          
+          <div class="form-group">
+            
+             <div class="container"  style=" border-color:#FF4500;">
+               <div class="row row-no-gutters">
+               <div class="col-sm-2">
+                </div>
+                   <div class="col-sm-3" >
+                        <div class="card" style=" border-color:transparent;" >
+                      <img src="/asset/virat.png" alt="virat" style="width:100%">
+                      <h1>Virat Kohli</h1>
+                      <p class="title">Royal Challengers Bangalore</p>
+                    <h5><b><input id="boxid" type="checkbox" class="option-input checkbox" name="virat" value="virat"><label for="boxid">ADD</label></b></h5>
+                  </div>
+                    </div>
+                <div class="col-sm-2">
+                </div>
+                    <div class="col-sm-3" >
+                               <div class="card"  style=" border-color:transparent;">
+                      <img src="/asset/abd.png" alt="abdvilliers" style="width:100%">
+                      <h1>AB de Villiers</h1>
+                      <p class="title">Royal Challengers Bangalore</p>
+                     <h5><b><input id="boxid1" type="checkbox" class="option-input checkbox" name="abd" value="abd"><label for="boxid">ADD</label></b></h5>
+                  </div>
+                  </div>
+               <div class="col-sm-2">
+                </div>
+                  </div>
+              <div class="row row-no-gutters">
+              <div class="col-sm-1">
+                </div>
+                    <div class="col-sm-3">
+                            <div class="card"  style=" border-color:transparent;">
+                      <img src="/asset/umesh.png" alt="umesh" style="width:100%">
+                      <h1>Umesh Yadav</h1>
+                      <p class="title">Royal Challengers Bangalore</p>
+                     <h5><b><input id="boxid2" type="checkbox" class="option-input checkbox" name="umesh" value="umesh"><label for="boxid">ADD</label></b></h5>
+                    </div>
+          
+                   </div>
+              <div class="col-sm-1">
+                </div>
+                    <div class="col-sm-3">
+                           <div class="card"  style=" border-color:transparent;">
+                      <img src="/asset/chahal.png" alt="chahal" style="width:100%">
+                      <h1>Yuzvendra Chahal</h1>
+                      <p class="title">Royal Challengers Bangalore</p>
+                     <h5><b><input id="boxid3" type="checkbox" class="option-input checkbox" name="chahal" value="bravo"><label for="boxid">ADD</label></b></h5>
+                    </div>
+                    </div>
+              <div class="col-sm-1">
+                </div>
+                <div class="col-sm-3">
+                         <div class="card"  style=" border-color:transparent;">
+                      <img src="/asset/negi.png" alt="negi" style="width:100%">
+                      <h1>Pawan Negi</h1>
+                      <p class="title">Royal Challengers Bangalore</p>
+                     <h5><b><input id="boxid4" type="checkbox" class="option-input checkbox" name="negi" value="negi"><label for="boxid">ADD</label></b></h5>
+                    </div>
+                </div>
+             </div>
+             </div>
+          <br>
+          <center><div id="info" style="height:50px;width:300px;color:#FF4500;box-shadow: 0 0 5px 0 #FF4500 inset, 0 0 5px 1px #FF4500;
+            border: 1px solid #FF4500;">SELECT ONLY THREE PLAYERS OUT OF 5</div></center>
+          </div>
+          
+          
+          
+          <dialog id="myDialog" style=" width: 60%;
+            height: auto; color:white;background-color:black;" >
+          <center><h2> Three Players Selected. Click <b style="color:yellow">"PLAY"</b> to proceed.</h2></center>
+          <br>
+           <center> <button type="submit" id="checkerButton" class="btn btn-outline-success">PLAY</button></center>
+          <br>
+          <h7>* Press "Esc" to close</h7>
+          
+          </dialog>
+          
+          </form>
+      </div>
+
+      <script>
+          function changetoplayer()
+          {
+              document.getElementById('playerdiv').style.display = 'block';
+              document.getElementById('franchisediv').style.display = 'none';
+          };
+      </script>
+      <script>
+        $(document).ready(function(){
+        $('#boxid,#boxid1,#boxid2,#boxid3,#boxid4').click(function() {
+            console.log("hi");
+          if ($(this).is(':checked')) {
+            $(this).siblings('label').html('ADDED');
+            
+          } else {
+            $(this).siblings('label').html('ADD');
+            
+          }
+        $(document).ready(function() {
+        
+         $("#checkerButton").hide();
+        });
+        $(document).ready(function() {
+        
+          if ($("input:checkbox:checked").length == 3) {
+            $("#checkerButton").show();
+        document.getElementById('info').style.display = 'none'; 
+         document.getElementById("myDialog").showModal(); 
+          } else {
+            $("#checkerButton").hide();
+            document.getElementById('info').style.display = 'block'; 
+          }
+        });	 
+        
+        });
+        });
+        
+        
+        </script>
 
 
 

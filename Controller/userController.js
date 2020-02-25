@@ -129,3 +129,7 @@ exports.checkEmail = (req, res, next) => {
 exports.franchise = (req, res, next) => {
     res.render("franchiseSelector");
 }
+
+exports.player = (req, res, next) => {
+    res.render("playerSelector");
+}
