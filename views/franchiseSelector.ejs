@@ -24,7 +24,7 @@
             <div class="row justify-content-center">
                 
                 
-                    <div class="col-5 col-md-2 kkr"  onclick="changetoplayer()">
+                    <div class="col-5 col-md-2 kkr">
                         <h1>KKR</h1>
                         <div class="imgcontainer">
                             <img src="/asset/kkr.png"   alt="">
@@ -39,7 +39,7 @@
                  
                 
             
-                <div class="col-5 col-md-2 rcb">
+                <div class="col-5 col-md-2 rcb"   onclick="changetoplayer()">
                     
                     <h1>RCB</h1>
                     <div class="imgcontainer">
@@ -57,7 +57,7 @@
             </div>
             <div class="row justify-content-center kkrrow">
                 
-                    <div class="col-10 col-md-4 csk" onclick="akil()">
+                    <div class="col-10 col-md-4 csk">
                         <h1>CSK</h1>
                         <div class="imgcontainer">
                             <img src="/asset/csk.png"   alt="">
@@ -109,14 +109,14 @@
 
     <div class="playercontainer" id="playerdiv"  style="display: none;" >
         <div class="header">
-          <center><h1 style="font-size:35px;color:#FF4500;"> Select 3 players :- </h1></center>
+          <center><h1 style="font-size:35px;color:white"> Pick your 3.</h1></center>
           </div>
           
           <form name="players_selection" method="POST" action="/action_page.php">
           
           <div class="form-group">
             
-             <div class="container"  style=" border-color:#FF4500;">
+             <div class="container">
                <div class="row row-no-gutters">
                <div class="col-sm-2">
                 </div>
@@ -125,7 +125,9 @@
                       <img src="/asset/virat.png" alt="virat" style="width:100%">
                       <h1>Virat Kohli</h1>
                       <p class="title">Royal Challengers Bangalore</p>
-                    <h5><b><input id="boxid" type="checkbox" class="option-input checkbox" name="virat" value="virat"><label for="boxid">ADD</label></b></h5>
+                      <div class="check">
+                        <h5><b><input id="boxid" type="checkbox" class="option-input checkbox" name="virat" value="virat"><label for="boxid">ADD</label></b></h5>
+                      </div>
                   </div>
                     </div>
                 <div class="col-sm-2">
@@ -135,7 +137,8 @@
                       <img src="/asset/abd.png" alt="abdvilliers" style="width:100%">
                       <h1>AB de Villiers</h1>
                       <p class="title">Royal Challengers Bangalore</p>
-                     <h5><b><input id="boxid1" type="checkbox" class="option-input checkbox" name="abd" value="abd"><label for="boxid">ADD</label></b></h5>
+                      <div class="check">                     <h5><b><input id="boxid1" type="checkbox" class="option-input checkbox" name="abd" value="abd"><label for="boxid">ADD</label></b></h5>
+                      </div>
                   </div>
                   </div>
                <div class="col-sm-2">
@@ -149,7 +152,8 @@
                       <img src="/asset/umesh.png" alt="umesh" style="width:100%">
                       <h1>Umesh Yadav</h1>
                       <p class="title">Royal Challengers Bangalore</p>
-                     <h5><b><input id="boxid2" type="checkbox" class="option-input checkbox" name="umesh" value="umesh"><label for="boxid">ADD</label></b></h5>
+                      <div class="check">                     <h5><b><input id="boxid2" type="checkbox" class="option-input checkbox" name="umesh" value="umesh"><label for="boxid">ADD</label></b></h5>
+                      </div>
                     </div>
           
                    </div>
@@ -160,7 +164,8 @@
                       <img src="/asset/chahal.png" alt="chahal" style="width:100%">
                       <h1>Yuzvendra Chahal</h1>
                       <p class="title">Royal Challengers Bangalore</p>
-                     <h5><b><input id="boxid3" type="checkbox" class="option-input checkbox" name="chahal" value="bravo"><label for="boxid">ADD</label></b></h5>
+                      <div class="check">                     <h5><b><input id="boxid3" type="checkbox" class="option-input checkbox" name="chahal" value="bravo"><label for="boxid">ADD</label></b></h5>
+                      </div>
                     </div>
                     </div>
               <div class="col-sm-1">
@@ -170,14 +175,15 @@
                       <img src="/asset/negi.png" alt="negi" style="width:100%">
                       <h1>Pawan Negi</h1>
                       <p class="title">Royal Challengers Bangalore</p>
-                     <h5><b><input id="boxid4" type="checkbox" class="option-input checkbox" name="negi" value="negi"><label for="boxid">ADD</label></b></h5>
+                      <div class="check">                     <h5><b><input id="boxid4" type="checkbox" class="option-input checkbox" name="negi" value="negi"><label for="boxid">ADD</label></b></h5>
+                      </div>
                     </div>
                 </div>
              </div>
              </div>
           <br>
           <center><div id="info" style="height:50px;width:300px;color:#FF4500;box-shadow: 0 0 5px 0 #FF4500 inset, 0 0 5px 1px #FF4500;
-            border: 1px solid #FF4500;">SELECT ONLY THREE PLAYERS OUT OF 5</div></center>
+            border: 1px solid #FF4500; visibility: hidden;" >SELECT ONLY THREE PLAYERS OUT OF 5</div></center>
           </div>
           
           
