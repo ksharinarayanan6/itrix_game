@@ -1,0 +1,31 @@
+[{
+	"team":"kkr",
+	"pla_name":["M.S.Dhoni","Suresh raina","Ravindra Jadeja","Faf duplesis","Imran tahir"],
+	"pla_photo":["/asset/virat.jpg","/asset/virat1.jpg","/asset/apple1.jpg","/asset/one.jpg","/asset/two.jpg"],
+	"gif":["","","","",""]
+},
+{
+	"team":"rcb",
+	"pla_name":["M.S.Dhoni","Suresh raina","Ravindra Jadeja","Faf duplesis","Imran tahir"],
+	"pla_photo":["/asset/apple1.jpg","/asset/one.jpg","/asset/two.jpg","/asset/virat.jpg","/asset/virat1.jpg"],
+	"gif":["","","","",""]
+},
+{
+	"team":"csk",
+	"pla_name":["M.S.Dhoni","Suresh raina","Ravindra Jadeja","Faf duplesis","Imran tahir"],
+	"pla_photo":["/asset/one.jpg","/asset/two.jpg","/asset/virat.jpg","/asset/virat1.jpg","/asset/apple1.jpg"],
+	"gif":["","","","",""]
+},
+{
+	"team":"srh",
+	"pla_name":["M.S.Dhoni","Suresh raina","Ravindra Jadeja","Faf duplesis","Imran tahir"],
+	"pla_photo":["","","","","",""],
+	"gif":["","","","",""]
+},
+{
+	"team":"mi",
+	"pla_name":["M.S.Dhoni","Suresh raina","Ravindra Jadeja","Faf duplesis","Imran tahir"],
+	"pla_photo":["/asset/virat1.jpg","/asset/apple1.jpg","/asset/one.jpg","/asset/two.jpg","/asset/virat.jpg"],
+	"gif":["","","","",""]
+}
+]

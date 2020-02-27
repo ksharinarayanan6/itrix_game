@@ -130,6 +130,48 @@ exports.franchise = (req, res, next) => {
     res.render("franchiseSelector");
 }
 
+exports.addFranchise = (req, res, next) => {
+    const franchiseData = {"email": res.locals.email, "franchise": res.locals.franchise};
+    const fs = require("fs");
+    
+    fs.readFile("JSON/franchises.json", function(err, data){
+        var jsonFileData = JSON.parse(data);
+        jsonFileData.push(franchiseData);
+
+        fs.writeFileSync("JSON/franchises.json", JSON.stringify(jsonFileData));
+    });
+
+    var players = [],
+        images = [];
+
+    var fi; //to take the corresponding the index in the franchise json file
+
+    switch(res.locals.franchise){
+        case "kkr": fi = 0; break;
+        case "rcb": fi = 1; break;
+        case "csk": fi = 2; break;
+        case "srh": fi = 3; break;
+        case "mi": fi = 4; break;
+    }
+
+    const data = require("../JSON/player.json");
+    /*
+    fs.readFile("JSON/player.json", function(err, data){
+        console.log(data);
+        for(var i = 0; i < 5; i++){
+            players[i] = data[fi].pla_name[i];
+            images[i] = data[fi].pla_photo[i];
+        }
+    });
+    */
+    console.log(data[fi]);
+    for(var i = 0; i < 5; i++){
+        players[i] = data[fi].pla_name[i];
+        images[i] = data[fi].pla_photo[i];
+    }
+    res.json({"franchise": res.locals.franchise, "players" : players, "images": images});
+}
+
 exports.player = (req, res, next) => {
     res.render("playerSelector");
 }

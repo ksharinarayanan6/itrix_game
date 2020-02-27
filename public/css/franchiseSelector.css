@@ -30,6 +30,7 @@ border-radius:10px;
 font-family:'Poppins',sans-serif;
 
 color:black;
+cursor:pointer !important;
 
 
 
@@ -81,6 +82,8 @@ color:black;
     font-family:'Poppins',sans-serif;
   margin-left:1vw;
   color:white;
+  cursor:pointer !important;
+
 
     
     
@@ -111,6 +114,8 @@ color:black;
     font-family:'Poppins',sans-serif;
 color:white;
 margin-right: 1vw;
+cursor:pointer !important;
+
 
 
     
@@ -149,6 +154,7 @@ margin-right: 1vw;
     font-family:'Poppins',sans-serif;
     margin-right:1vw;
     color:white;
+    cursor:pointer !important;
 
 
 
@@ -181,7 +187,8 @@ margin-right: 1vw;
         font-family:'Poppins',sans-serif;
         margin-left:1vw;
         color:white;
-    
+        cursor:pointer !important;
+
     
         
         

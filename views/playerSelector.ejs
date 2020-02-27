@@ -7,12 +7,12 @@
 body{
 background-color:black;
 }
-.container{
+.playercontainer .container{
 background-color:white;
 }
-<!--For player card -->
 
-.card {
+
+.playercontainer .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: auto;
@@ -21,23 +21,23 @@ background-color:white;
   padding:30px;
 }
 
-.title {
+.playercontainer .title {
   color: grey;
   font-size: 15px;
 }
-h1{
+.playercontainer h1{
 font-size:20px;
   white-space: nowrap;
 
 }
-div {
+.playercontainer div {
     border-style:solid;
     border-width:4px;  
     border-color:transparent;
 }
-<!-- card end -->
-<!-- for checkbox -->
-*{font-family: 'Roboto', sans-serif;}
+/* <!-- card end -->
+<!-- for checkbox --> */
+
 
 @keyframes click-wave {
   0% {
@@ -55,7 +55,7 @@ div {
   }
 }
 
-.option-input {
+.playercontainer .option-input {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -79,13 +79,13 @@ div {
   position: relative;
   z-index: 1000;
 }
-.option-input:hover {
+.playercontainer .option-input:hover {
   background: #9faab7;
 }
-.option-input:checked {
+.playercontainer .option-input:checked {
   background: #40e0d0;
 }
-.option-input:checked::before {
+.playercontainer .option-input:checked::before {
   height: 15px;
   width: 15px;
   position: absolute;
@@ -95,7 +95,7 @@ div {
   text-align: center;
   line-height: 20px;
 }
-.option-input:checked::after {
+.playercontainer .option-input:checked::after {
   -webkit-animation: click-wave 0.65s;
   -moz-animation: click-wave 0.65s;
   animation: click-wave 0.65s;
@@ -106,14 +106,14 @@ div {
   z-index: 100;
 }
 
-h5{
+.playercontainer h5{
 font-size:20px;
   white-space: nowrap;
 }
-
+/* 
 <!--end-->
-<!--button-->
-.button {
+<!--button--> */
+.playercontainer .button {
   width: 170px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -127,7 +127,7 @@ font-size:20px;
   display: inline-block;
 }
 
-.button-1 {
+.playercontainer .button-1 {
   background-color: transparent;
   border: 3px solid #00d7c3;
   border-radius: 50px;
@@ -135,13 +135,13 @@ font-size:20px;
   transition: all .15s ease-in-out;
   color: #00d7c3;
 }
-.button-1:hover {
+.playercontainer .button-1:hover {
   box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
   border: 3px solid #00d7c3;
 }
 
 
-<!--buttonend-->
+/* <!--buttonend--> */
 
 
 @media only screen and (min-width: 600px) {
@@ -173,7 +173,7 @@ font-size:20px;
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
-h2{
+.playercontainer h2{
      word-wrap: break-word;
      -webkit-hyphens: auto;
      -moz-hyphens: auto;

@@ -18,6 +18,7 @@ userController.addUser);
 router.get("/logged/", function (req, res, next) {
 
     if (!req.session.email){
+        //req.session.email = "hari@gmail.com";
         res.redirect("/");
     }
     
@@ -82,6 +83,14 @@ router.post("/logged/", function(req, res, next){
 });
 
 router.get("/franchise/", userController.franchise);
+
+router.post("/addFranchise/", function(req, res, next){
+    res.locals.email = req.session.email;
+    res.locals.franchise = req.body.franchise;
+    next()
+},
+userController.addFranchise
+);
 
 router.get("/playerSelect/", userController.player);
 

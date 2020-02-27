@@ -24,10 +24,10 @@
             <div class="row justify-content-center">
                 
                 
-                    <div class="col-5 col-md-2 kkr">
+                    <div class="col-5 col-md-2 kkr" onclick="changetoplayer(1)">
                         <h1>KKR</h1>
                         <div class="imgcontainer">
-                            <img src="/asset/kkr.png"   alt="">
+                            <img src="/asset/kkr.png"   alt="" onclick="changetoplayer(1)">
     
                         </div>
                         <div class="details">
@@ -39,7 +39,7 @@
                  
                 
             
-                <div class="col-5 col-md-2 rcb"   onclick="changetoplayer()">
+                <div class="col-5 col-md-2 rcb"    onclick="changetoplayer(2)">
                     
                     <h1>RCB</h1>
                     <div class="imgcontainer">
@@ -57,7 +57,7 @@
             </div>
             <div class="row justify-content-center kkrrow">
                 
-                    <div class="col-10 col-md-4 csk">
+                    <div class="col-10 col-md-4 csk"  onclick="changetoplayer(3)">
                         <h1>CSK</h1>
                         <div class="imgcontainer">
                             <img src="/asset/csk.png"   alt="">
@@ -73,7 +73,7 @@
             </div>
             <div class="row justify-content-center">
                 
-                    <div class="col-5 col-md-2 srh">
+                    <div class="col-5 col-md-2 srh"  onclick="changetoplayer(4)">
                         <h1>SRH</h1>
                         <div class="imgcontainer">
                             <img src="/asset/srh.png"   alt="">
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                
-                <div class="col-5 col-md-2 mi">
+                <div class="col-5 col-md-2 mi"  onclick="changetoplayer(5)">
                     <h1>MI</h1>
                     <div class="imgcontainer">
                         <img src="/asset/mi.png"   alt="">
@@ -202,10 +202,28 @@
       </div>
 
       <script>
-          function changetoplayer()
+          
+          function changetoplayer(n)
           {
-              document.getElementById('playerdiv').style.display = 'block';
-              document.getElementById('franchisediv').style.display = 'none';
+              var franchise = "";
+              switch(n){
+                case 1: franchise = "kkr"; break;
+                case 2: franchise = "rcb"; break;
+                case 3: franchise = "csk"; break;
+                case 4: franchise = "srh"; break;
+                case 5: franchise = "mi"; break;
+              }
+              console.log(franchise);
+              $.ajax({
+                type: "POST",
+                url: "/addFranchise/",
+                data: {franchise: franchise},
+                success: function(data){
+                  console.log(data);
+                }
+              });
+              //document.getElementById('playerdiv').style.display = 'block';
+              //document.getElementById('franchisediv').style.display = 'none';
           };
       </script>
       <script>
