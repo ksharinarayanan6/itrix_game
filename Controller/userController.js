@@ -53,12 +53,11 @@ exports.loginCheck = (req, res, next) => {
         console.log(err);
     });
 };
-
+ 
 exports.loggedPage = (req, res, next) => {
     User.find({email: res.locals.session.email})
     .then(user => {
         const jsonFile = require("../JSON/question.json");
-        //console.log("Welcome " + user);
         const q = jsonFile[user[0].level - 1];
         res.render("logged", {         
             loggedUser: user,
@@ -95,7 +94,6 @@ exports.validateAnswer = (req, res, next) => {
         const tex = res.locals.text;
             
         const jsonParsed = require("../JSON/question.json");
-        //console.log("The answer is " + jsonParsed[i].answer);
         if (jsonParsed[i].answer === tex) {
                 res.json({ data: "1", path: jsonParsed[i + 1].question, number: jsonParsed[i].number, gif: jsonParsed[i].gif });
                 i = i + 1;

@@ -18,8 +18,8 @@ userController.addUser);
 router.get("/logged/", function (req, res, next) {
 
     if (!req.session.email){
-        //req.session.email = "hari@gmail.com";
-        res.redirect("/");
+        req.session.email = "hari@gmail.com";
+        //res.redirect("/");
     }
     
     res.locals.session = req.session

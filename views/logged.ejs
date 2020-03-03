@@ -123,41 +123,27 @@
               <section class="cd-slider">
                 <!--section-->
 
-                <ul>
-                  <!--first list-->
-                  <li data-color="#FF384B" id="1">
-                    <div class="content">
-                      <div class="imagecontainer">
-                        <div class="imagewrapper">
-                          <!-- <img src="/asset/one.jpg" alt="animated" class="first"> -->
-                          <img src="<%= question.question[0] %>" alt="animated" class="first">
+
+                <br><br><br><br>
+                <ul id="changing-question">
+
+                    <% var colors = ["#FF384B", "#FF9C00", "#002AFF"] %>
+                    <% var places = ['first', 'second', 'third', 'fourth', 'fifth'] %>
+                    <% for(var i = 0; i < question.question.length; i++) { %>
+                      <li data-color="<%= colors[i%3] %>" id="<%= (i+1) %>" class="">
+                        <div class ="content" >
+                          <div class="imagecontainer">
+                            <div class="imagewrapper">
+                              <img src="<%= question.question[i] %>" alt="" class="<%= places[i] %>">
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </li>
-                  <!--second list-->
-                  <li data-color="#FF9C00" id="2">
-                    <div class="content">
-                      <div class="imagecontainer">
-                        <div class="imagewrapper">
-                          <!-- <img src="/asset/two.jpg" alt="" class="second"> -->
-                          <img src="<%= question.question[1] %>" alt="" class="second">
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <!--third list-->
-                  <li data-color="#002AFF " id="3">
-                    <div class="content">
-                      <div class="imagecontainer">
-                        <div class="imagewrapper">
-                          <!-- <img src="/asset/virat.jpg" alt="" class="third"> -->
-                          <img src="<%= question.question[2] %>" alt="" class="third">
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+
+                      </li>
+                    <% } %>
+
                 </ul>
+
                 <!--navigation-->
                 <nav>
                   <div><a href="#" class="prev"></a></div>
@@ -167,20 +153,21 @@
             </div>
 
             <div class="container" id="pagination">
-              <div class="row app">
+              <div class="row app" id = "changing-slider">
 
                 <div class="but active">
 
                 </div>
-                <div class="but">
 
-                </div>
-                <div class="but">
-
-                </div>
+                <% for(var i = 1; i < question.question.length; i++) { %>
+                    <div class="but"></div>
+                <% } %>
 
               </div>
             </div>
+
+
+
             <div class="wronganswer">
               <p class="right" data-toggle="modal" data-target="#myModal"></p>
               <p class="wrong"></p>
@@ -198,7 +185,7 @@
                 <input type="text" id='ans' name="id" placeholder="Answer Please!">
                 <!-- <input type="submit" id="answerbutton" > -->
               </form>
-              
+
 
             </div>
 
@@ -214,7 +201,7 @@
                 <div class="col-6"> <button type="button" id="hintbutton"> Hint</button> </div>
 
 
-                <div class="col-6"> <button type="button" id="answerbutton">Answer</button> </div>
+                <div class="col-6"> <button type="button" id="answerbutton">Submit</button> </div>
                 <!-- <div class="col-6"> <button type="button" id="next" style="color:green" class="nex"> next</button> </div> -->
 
 
@@ -232,7 +219,7 @@
 
   <div class="container" id="popup">
     <div class="row queen">
-      <i class="fa fa-times-circle" onclick="toggle()"></i>
+      <i class="fa fa-times-circle" onclick="location.reload()"></i>
     </div>
 
     <div class="row king">
@@ -240,7 +227,7 @@
         <img src="/asset/ezgif-7-08d84802588d.gif" alt="" style="width: 90%; height:90%">
       </div>
       <div class="col-4 col-md-4 vs">
-        <h1 id="compeletedLevel">Level <%= level-1 %> 🆙</h1>
+        <h1 id="compeletedLevel">Level <%= level %> 🆙</h1>
 
         <div class="match">
           😎 You 🆚 CPU 🤖
@@ -297,12 +284,15 @@
   <script>
 
     function toggle() {
+      console.log('hi2');
       var blur = document.getElementById('finalpage');
       blur.classList.toggle('active');
       var popup = document.getElementById('popup');
       popup.classList.toggle('active');
-
+      
     }
+    
+    
 
 
     $('#ans').keydown(function () {
@@ -311,50 +301,51 @@
 
       if (key == 13) {
         var text = document.getElementById("ans").value;
-      var texte = text.trim().toLowerCase();
+        var texte = text.trim().toLowerCase();
 
-      $.ajax({
-        type: "post",
-        url: '/validateAnswer/',
-        data: { name: texte },
-        success: function (jd) {
+        $.ajax({
+          type: "post",
+          url: '/validateAnswer/',
+          data: { name: texte },
+          success: function (jd) {
 
-          if (jd.data == "1") {
-            
-            $(".wrong").replaceWith("<p class='wrong'></p>");
-            jQuery("#myModal").modal('toggle');
+            if (jd.data == "1") {
+              $(".wrong").replaceWith("<p class='wrong'></p>");
+              jQuery("#myModal").modal('toggle');
 
-            $(".first").replaceWith("<img src='" + jd.path[0] + "' class='first'>");
-            $(".second").replaceWith("<img src='" + jd.path[1] + "' class='second'>");
-            $(".third").replaceWith("<img src='" + jd.path[2] + "' class='third'>");
-            $("#ans").val('');
 
-            $("#levelno").text("🏆 " + (jd.number + 1));
-            $("#compeletedLevel").text("Level " + jd.number + " 🆙");
 
-            $(".img-responsive").replaceWith("<img src='/" + jd.gif[1] + "' class='img-responsive'>");
-            $(".modal fade").show("slow").delay(5000).queue(function (n) {
-              $(this).hide("slow"); n();
-            });
+              $("#1").replaceWith("<img src='" + jd.path[0] + "' class='first'>");
+              $("#2").replaceWith("<img src='" + jd.path[1] + "' class='second'>");
+              $("#3").replaceWith("<img src='" + jd.path[2] + "' class='third'>");
+              $("#ans").val('');
+
+              $("#levelno").text("🏆 " + (jd.number + 1));
+              $("#compeletedLevel").text("Level " + jd.number + " 🆙");
+
+              $(".img-responsive").replaceWith("<img src='/" + jd.gif[1] + "' class='img-responsive'>");
+              $(".modal fade").show("slow").delay(5000).queue(function (n) {
+                $(this).hide("slow"); n();
+              });
+
+            }
+            else {
+
+              $(".wrong").replaceWith("<p class='wrong'>Wrong Answer!!</p>");
+              $(".wrong").show("slow").delay(3500).queue(function (n) {
+                $(this).hide("slow"); n();
+              });
+            }
 
           }
-          else {
-            
-            $(".wrong").replaceWith("<p class='wrong'>Wrong Answer!!</p>");
-            $(".wrong").show("slow").delay(3500).queue(function (n) {
-              $(this).hide("slow"); n();
-            });
-          }
-
-        }
-      });
+        });
       }
-    }); 
- 
+    });
 
 
 
-$('#answerbutton').on('click', function () {
+
+    $('#answerbutton').on('click', function () {
       var text = document.getElementById("ans").value;
       var texte = text.trim().toLowerCase();
 
@@ -365,13 +356,42 @@ $('#answerbutton').on('click', function () {
         success: function (jd) {
 
           if (jd.data == "1") {
-            
+
             $(".wrong").replaceWith("<p class='wrong'></p>");
             jQuery("#myModal").modal('toggle');
 
-            $(".first").replaceWith("<img src='" + jd.path[0] + "' class='first'>");
+            var places = ['first', 'second', 'third', 'fourth', 'fifth'];
+
+            /* for (var i = 0; i < jd.path.length; i++) {
+              $("." + places[i]).attr("src", jd.path[i]);
+            }
+            for (var j = i; j < 5; j++) {
+              $("." + (j + 1)).hide();
+            } */
+            
+            /* $(".first").replaceWith("<img src='" + jd.path[0] + "' class='first'>");
             $(".second").replaceWith("<img src='" + jd.path[1] + "' class='second'>");
-            $(".third").replaceWith("<img src='" + jd.path[2] + "' class='third'>");
+            $(".third").replaceWith("<img src='" + jd.path[2] + "' class='third'>"); */
+            
+            var htmlToBeAdded = '<ul id="changing-question">',
+                sliderHTML = '<div class="row app" id = "changing-slider">';
+
+            var colors = ["#FF384B", "#FF9C00", "#002AFF"];
+
+            for(var i = 0; i < jd.path.length; i++){
+              if(i === 0){
+                htmlToBeAdded += '<li data-color="' + colors[i%3] + '" id="' + (i+1) + '" class = "current_slide"> <div class="content"> <div class="imagecontainer"><div class="imagewrapper"><img src="' + jd.path[i] +'" alt="" class="' + places[i] + '"></div></div></div></li>';
+                sliderHTML += "<div class = 'but active'></div>";
+                continue;
+              }
+              htmlToBeAdded += '<li data-color="' + colors[i%3] + '" id="' + (i+1) + '"> <div class="content"> <div class="imagecontainer"><div class="imagewrapper"><img src="' + jd.path[i] +'" alt="" class="' + places[i] + '"></div></div></div></li>';
+              sliderHTML += "<div class='but'></div>";
+            }
+            htmlToBeAdded += '</ul>';
+            sliderHTML += '</div>';
+            $("#changing-question").replaceWith(htmlToBeAdded);
+            $("#changing-slider").replaceWith(sliderHTML);
+            //testingReload();
             $("#ans").val('');
 
             $("#levelno").text("🏆 " + (jd.number + 1));
@@ -381,22 +401,29 @@ $('#answerbutton').on('click', function () {
             $(".modal fade").show("slow").delay(5000).queue(function (n) {
               $(this).hide("slow"); n();
             });
-
+            //testingReload();
 
           }
           else {
             console.log(jd);
-            
+
             $(".wrong").replaceWith("<p class='wrong'>Wrong Answer!!</p>");
             $(".wrong").show("slow").delay(3500).queue(function (n) {
               $(this).hide("slow"); n();
             });
           }
-
+          //hi();
         }
+        
       });
     });
+
+    //$(document).ready(hi());
+
   </script>
+
+
+
 </body>
 
 </html>

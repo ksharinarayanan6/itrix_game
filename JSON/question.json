@@ -1,7 +1,7 @@
 [{ 
     "answer": "asuran",
     "number":1,
-   "question": ["/asset/one.jpg","/asset/two.jpg","/asset/virat.jpg" ],
+   "question": ["/asset/one.jpg","/asset/two.jpg"],
    "gif" :["/asset/fail1.gif","asset/success1.gif"] 
 },
 {
@@ -13,7 +13,7 @@
 {
     "answer": "kaithi",
     "number":3,
-    "question": [ "/asset/apple.jpg","/asset/apple1.jpg","/asset/virat1.jpg"],
+    "question": [ "/asset/apple.jpg","/asset/apple1.jpg"],
     "gif" :["/asset/fail1.gif","asset/success1.gif"] 
 
 },
